@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penghitung Klik</title>
+</head>
+<body>
+    <h1>Penghitung Jumlah Klik - T4_058</h1>
+
+    <button id="tombolKlik">Klik Saya</button>
+    <p>Jumlah klik: <span id="jumlahKlik">0</span></p>
+
+    <script>
+        let jumlah = 0;
+
+        const tombol = document.getElementById('tombolKlik');
+        const tampilan = document.getElementById('jumlahKlik');
+
+        // Setiap tombol diklik, tambah hitungan lalu tampilkan
+        tombol.addEventListener('click', function () {
+            jumlah++;
+            tampilan.textContent = jumlah;
+        });
+    </script>
+</body>
+</html>

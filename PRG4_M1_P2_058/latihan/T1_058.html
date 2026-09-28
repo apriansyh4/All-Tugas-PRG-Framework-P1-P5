@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas 1 - Konversi Suhu</title>
+    <!-- Menghubungkan ke file CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h2>Konversi Suhu</h2>
+        
+        <div class="form-group">
+            <label for="inputSuhu">Masukkan Nilai Suhu:</label>
+            <input type="number" id="inputSuhu" placeholder="Contoh: 100">
+        </div>
+
+        <div class="form-group">
+            <label for="jenisKonversi">Pilih Jenis Konversi: </label>
+            <select id="jenisKonversi">
+                <option value="CtoF">Celsius ke Fahrenheit</option>
+                <option value="CtoR">Celsius ke Reamur</option>
+                <option value="FtoC">Fahrenheit ke Celsius</option>
+                <option value="FtoR">Fahrenheit ke Reamur</option>
+                <option value="RtoC">Reamur ke Celsius</option>
+                <option value="RtoF">Reamur ke Fahrenheit</option>
+            </select>
+        </div>
+
+        <button onclick="konversiSuhu()">Konversi Sekarang</button>
+
+        <div id="hasil">
+            Hasil konversi akan tampil di sini...
+        </div>
+    </div>
+
+    <!-- Menghubungkan ke file JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

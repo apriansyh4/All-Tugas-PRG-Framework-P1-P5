@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <title>Tugas 3 - Statistik Array</title>
+</head>
+<body>
+    <h2>Statistik Array</h2>
+    <input type="text" id="inputAngka" placeholder="Contoh: 10, 20, 30">
+    <button onclick="prosesStatistik()">Proses</button>
+    <div id="hasilStatistik"></div>
+
+    <script>
+        function hitungStatistik(arr) {
+            const min = Math.min(...arr);
+            const max = Math.max(...arr);
+            const rataRata = arr.reduce((a, b) => a + b, 0) / arr.length;
+
+            return { min, max, rataRata };
+        }
+
+        function prosesStatistik() {
+            const input = document.getElementById('inputAngka').value;
+            const angkaArray = input.split(',').map(n => parseFloat(n.trim()));
+
+            if (angkaArray.some(isNaN)) {
+                alert("Input tidak valid!");
+                return;
+            }
+
+            const stats = hitungStatistik(angkaArray);
+            document.getElementById('hasilStatistik').innerHTML = `
+                <ul>
+                    <li>Nilai Minimum: ${stats.min}</li>
+                    <li>Nilai Maksimum: ${stats.max}</li>
+                    <li>Nilai Rata-rata: ${stats.rataRata}</li>
+                </ul>
+            `;
+        }
+    </script>
+</body>
+</html>

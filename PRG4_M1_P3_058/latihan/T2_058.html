@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <title>Tugas 2 - Pencetak Angka</title>
+</head>
+<body>
+    <h2>Hasil Pencetak Angka (1-100)</h2>
+    <div id="output" style="line-height: 20px; word-wrap: break-word;"></div>
+
+    <script>
+        let hasil = [];
+        for (let i = 1; i <= 100; i++) {
+            if (i % 3 === 0 && i % 5 === 0) {
+                hasil.push("MI2A");
+            } else if (i % 3 === 0) {
+                hasil.push("MI");
+            } else if (i % 5 === 0) {
+                hasil.push("2A");
+            } else {
+                hasil.push(i);
+            }
+        }
+        document.getElementById('output').innerText = hasil.join(", ");
+    </script>
+</body>
+</html>

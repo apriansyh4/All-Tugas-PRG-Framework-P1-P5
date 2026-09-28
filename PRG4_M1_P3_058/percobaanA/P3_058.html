@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Tugas</title>
+</head>
+<body>
+    <h1>Daftar Tugas - P3_058</h1>
+    
+    <!-- Form untuk menambah tugas -->
+    <input type="text" id="inputTugas" placeholder="Masukkan tugas">
+    <button onclick="tambahTugas()">Tambah Tugas</button>
+
+    <!-- Tombol untuk menampilkan daftar tugas -->
+    <button onclick="tampilkanTugas()">Tampilkan Daftar Tugas</button>
+
+    <!-- Daftar Tugas -->
+    <ul id="listTugas" style="display: none;"></ul>
+
+    <script>
+        // Deklarasi array untuk menyimpan daftar tugas
+        let daftarTugas = [];
+
+        // Fungsi untuk menambah tugas
+        function tambahTugas() {
+            const input = document.getElementById('inputTugas');
+            const tugas = input.value.trim(); // Menghapus spasi berlebih
+
+            if (tugas) {
+                daftarTugas.push(tugas);
+                console.log(`Tugas "${tugas}" berhasil ditambahkan.`);
+                input.value = ''; // Membersihkan input setelah ditambah
+                alert(`Tugas "${tugas}" berhasil ditambahkan.`);
+            } else {
+                alert("Masukkan tugas yang valid.");
+            }
+        }
+
+        // Fungsi untuk menampilkan daftar tugas
+        function tampilkanTugas() {
+            const list = document.getElementById('listTugas');
+            list.innerHTML = ''; // Membersihkan daftar sebelum ditampilkan
+
+            if (daftarTugas.length === 0) {
+                list.innerHTML = '<li>Tidak ada tugas.</li>';
+            } else {
+                daftarTugas.forEach((tugas, index) => {
+                    const li = document.createElement('li');
+                    li.textContent = tugas + " ";
+                    
+                    const btnHapus = document.createElement('button');
+                    btnHapus.textContent = 'Hapus';
+                    btnHapus.style.marginLeft = '10px';
+                    btnHapus.onclick = () => hapusTugas(index + 1);
+                    
+                    li.appendChild(btnHapus);
+                    list.appendChild(li);
+                });
+            }
+            list.style.display = 'block';
+        }
+
+        // Fungsi untuk menghapus tugas berdasarkan indeks
+        function hapusTugas(indeks) {
+            if (indeks > 0 && indeks <= daftarTugas.length) {
+                const tugasTerhapus = daftarTugas.splice(indeks - 1, 1);
+                console.log(`Tugas "${tugasTerhapus}" berhasil dihapus.`);
+                alert(`Tugas "${tugasTerhapus}" berhasil dihapus.`);
+                tampilkanTugas(); // Memperbarui tampilan
+            } else {
+                alert("Indeks tugas tidak valid.");
+            }
+        }
+    </script>
+</body>
+</html>
